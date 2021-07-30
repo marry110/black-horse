@@ -1,0 +1,80 @@
+<template>
+	<view>
+		<view class="">
+		<image class="img" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.ossfiles.cn%3A9186%2Fgroup2%2FM00%2F3C%2F69%2FrBgICV1ctY2AWMnDAABSVCs8FjU975.jpg&refer=http%3A%2F%2Fpic.ossfiles.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629514883&t=5061d0d25af0ad0f993ea34379832e4d"/>
+	    </view>
+		 <view class="info">
+			 <view class="" @click="markerphone">
+			 	联系电话：400-618-9090(拨打电话)
+			 </view>
+	     	  <view class="">
+	     	  	小区地址：浙江省杭州市下沙经济开发区4号大街187号盛泰时代
+	     	  </view>	 
+	     </view>
+		<view
+			 <map 
+			 class="map"
+			 :longitude="longitude" 
+			 :latitude="latitude"
+			 :markers="covers"
+			 :scale="scale"
+			 >
+			 </map>
+			
+			
+		</view>
+	
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				
+				longitude:114.689688,
+				latitude:33.641926,
+				covers:[
+					{
+						longitude:114.689688,
+						latitude:33.641926,
+						iconPath:'../../static/images/3.jpg',
+						width:30,
+						height:30,
+					}
+				],
+				scale:13
+			}
+		},
+		methods: {
+			markerphone(){
+				uni.makePhoneCall({
+					phoneNumber:'400-618-9090',
+					
+				})
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+.img{
+	width:750rpx;
+    height: 320rpx;
+	
+}
+.info{
+	padding: 10rpx 20rpx;
+	font-size: 30rpx;
+	view{
+		line-height: 80rpx;
+		border-bottom:1px solid #eee;
+		
+	}
+}
+.map{
+	width:750rpx;
+	height: 750rpx;
+}
+
+</style>
